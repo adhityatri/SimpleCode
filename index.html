@@ -1,45 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Navigation</title>
+    <title>Simple toggle</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body{
+        body {
             font-family: 'Nunito', sans-serif;
-        }
-        .navigation{
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 1em;
-            list-style: none;
-            font-size: 1.2em;
-            background-color: #023047;
-            color: white;
+            background-color: whitesmoke;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
         }
 
-        .navigation li {
-            transition: all ease-in-out .2s;
-            transition-delay: .1s;
-            padding: 1em;
-            cursor: pointer;
+        .wrapper {
+            display: flex;
+            height: 100px;
+            width: 100px;
+            background-color: white;
+            align-items: center;
+            justify-content: center;
+            border-radius: .5rem;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
         }
 
-        .navigation li:hover{
-            background-color: #264653;
+
+        /* CSS */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
         }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+/* CSS */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .2s;
+    transition: .2s;
+    border-radius: 1rem;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+    border-radius: 1rem;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
     </style>
 </head>
+
 <body>
-    <ul class="navigation">
-        <li>Homepage</li>
-        <li>Article</li>
-        <li>Blog</li>
-        <li>About</li>
-    </ul>
+    <div class="wrapper">
+
+        <!-- HTML -->
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
 </body>
+
 </html>
